@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AxForge images</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="logo" aria-hidden="true">◆</span>
+    <div><strong>AxForge images</strong><small>make an image with ERNIE Image Turbo, change it with FLUX.2 Klein</small></div>
+  </header>
+
+  <main class="layout">
+    <section class="controls">
+      <form id="generate" class="card">
+        <h2>1. Make an image</h2>
+        <textarea id="prompt" rows="4" placeholder="What to draw. Put words you want in the image in quotes.">A cozy bakery window at dawn, a chalkboard sign reading "FRESH BREAD", warm light, photo</textarea>
+        <label class="size">Size
+          <select id="size">
+            <option value="1024x1024">Square 1024 x 1024</option>
+            <option value="1536x1024">Wide 1536 x 1024</option>
+            <option value="1024x1536">Tall 1024 x 1536</option>
+          </select>
+        </label>
+        <button id="generate-btn">Make it</button>
+      </form>
+
+      <form id="edit" class="card">
+        <h2>2. Change it</h2>
+        <textarea id="instruction" rows="3" placeholder="What to change, for example: make it night, with snow falling">Make it night, with snow falling outside</textarea>
+        <button id="edit-btn" disabled>Change the image</button>
+        <label class="upload">Or start from your own image <input id="upload" type="file" accept="image/*"></label>
+      </form>
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section class="stage">
+      <div id="current" class="current empty">Your image appears here.</div>
+      <div class="actions"><a id="download" class="ghost" download="axforge-image.png" hidden>Download</a></div>
+      <div id="history" class="history" aria-label="Earlier images"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
